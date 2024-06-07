@@ -127,8 +127,8 @@ export default function Home() {
 				</div>
 				<div className="md:px-[50px] mt-[5rem]">
 					<div className="flex gap-4 justify-center flex-wrap md:flex-nowrap">
-						{RuleThemAll.map(rules => (
-							<div className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
+						{RuleThemAll.map((rules, index) => (
+							<div key={index} className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
 								<div className="bg-black p-[1.6rem] rounded-[2rem]">
 									{rules.img}
 									<h3 className="text-[1.5rem] mb-[0.8rem]">{rules.header}</h3>
@@ -138,8 +138,8 @@ export default function Home() {
 						))}
 					</div>
 					<div className="flex gap-4 justify-center mt-[2rem] flex-wrap md:flex-nowrap">
-						{MoreRuleThemAll.map(rules => (
-							<div className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
+						{MoreRuleThemAll.map((rules, index) => (
+							<div key={index} className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
 								<div className="bg-black p-[1.6rem] rounded-[2rem]">
 									{rules.img}
 									<h3 className="text-[1.5rem] mb-[0.8rem] text-center">{rules.header}</h3>
@@ -194,8 +194,8 @@ export default function Home() {
 				</div>
 				<div className="pt-[2rem] md:pt-[5rem] md:px-[3rem]">
 					<div className="flex gap-4 justify-center flex-wrap md:flex-nowrap">
-						{BuiltForScale.map(rules => (
-							<div className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
+						{BuiltForScale.map((rules, index) => (
+							<div key={index} className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
 								<div className="bg-black p-[1.6rem] rounded-[2rem]">
 									<div className="scale_card-image justify-center flex md:!flex-none md:justify-start">
 										{rules.img}
