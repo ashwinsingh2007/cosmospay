@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  font-family: Ppeiko, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.fontFamilyMdPrime {
+  font-family: Mdprimer,Impact,sans-serif;
+}
+
+.scale_card-img {
+  object-fit: contain;
+  object-position: 0% 50%;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.scale_card-img-large {
+  object-fit: contain;
+  height: 300px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.scale_card-small {
+  object-position: 0% 50%;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.scale_card-image {
+  width: 100%;
+  min-height: 140px;
+}
+
+.subHeaderTransition {
+  transform: translate3d(0px, 0rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148233c25a8b3e_MDPrimer-Semibold.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482d02a5a8b3c_MDPrimer-Semibold.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148264415a8b3d_MDPrimer-Semibold.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148264415a8b3d_MDPrimer-Semibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482ea5c5a8b31_MDPrimer-Bold.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148252bc5a8b2e_MDPrimer-Bold.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148269a35a8b2f_MDPrimer-Bold.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148269a35a8b2f_MDPrimer-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148219495a8b3a_MDPrimer-Regular.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482b5045a8b3b_MDPrimer-Regular.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482804c5a8b39_MDPrimer-Regular.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482804c5a8b39_MDPrimer-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14822df85a8b38_MDPrimer-Light.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148245685a8b33_MDPrimer-Light.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14827a435a8b36_MDPrimer-Light.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14827a435a8b36_MDPrimer-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148212d25a8b35_MDPrimer-Medium.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482f3415a8b37_MDPrimer-Medium.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482cef35a8b34_MDPrimer-Medium.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482cef35a8b34_MDPrimer-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mdprimer';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482ad435a8b30_MDPrimer-Black.woff2') format('woff2'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482df305a8b32_MDPrimer-Black.woff') format('woff'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482578a5a8b2d_MDPrimer-Black.otf') format('opentype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482578a5a8b2d_MDPrimer-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14821de45a8b41_PPEiko-Heavy.ttf') format('truetype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148212d15a8b3f_PPEiko-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14822b775a8b42_PPEiko-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482988b5a8b43_PPEiko-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482595c5a8b45_PPEiko-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14828b125a8b46_PPEiko-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148230895a8b44_PPEiko-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148261455a8b40_PPEiko-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148234335a8b4b_PPEiko-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482e0b45a8b47_PPEiko-BlackItalic.ttf') format('truetype'), url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148238f85a8b4a_PPEiko-HeavyItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb14824c9d5a8b49_PPEiko-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148218b25a8b4f_PPEiko-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482283b5a8b50_PPEiko-RegularItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb1482660c5a8b51_PPEiko-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ppeiko';
+  src: url('https://uploads-ssl.webflow.com/64459fc8eb1482845c5a8b24/64459fc8eb148218645a8b48_PPEiko-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
