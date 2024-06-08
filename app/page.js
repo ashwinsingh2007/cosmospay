@@ -1,5 +1,5 @@
 "use client"
-
+import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { motion } from "framer-motion"
 import { TypeAnimation } from 'react-type-animation';
@@ -57,6 +57,7 @@ const BuiltForScale = [
 ]
 
 export default function Home() {
+	const [hasViewed, setHasViewed] = useState(false);
 
 	return (
 		<motion.div
@@ -90,11 +91,11 @@ export default function Home() {
 				</div>
 
 				<div className="flex flex-col justify-center items-center mt-[2em] md:mt-[5em]">
-					<h1 className="text-[1.5em] md:text-[4em] leading-none text-center">
+					<h1 className="text-[1.7em] md:text-[4em] leading-none text-center">
 						The first personal card
 					</h1>
 					<TypeAnimation
-						className="text-[1.5em] leading md:text-[4em] text-center"
+						className="text-[1.7em] leading md:text-[4em] text-center"
 						sequence={[
 							'for all your employer tools.',
 							1000,
@@ -108,7 +109,7 @@ export default function Home() {
 						speed={180}
 						repeat={Infinity}
 					/>
-					<p className="fontFamilyMdPrime text-[1em] font-light leading-normal text-gray-400 mt-[2em] w-[90%] md:w-[30%] text-center">
+					<p className="fontFamilyMdPrime text-[0.9em] font-light leading-normal text-gray-400 mt-[2em] w-[90%] md:w-[30%] text-center">
 						Combine multiple vendors with Cosmoscard's best-in-class perks, company stipends, and expense reporting.
 					</p>
 					<div className="flex gap-4 mt-[2em] flex-wrap justify-center">
@@ -120,7 +121,7 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="p-[1.5em]">
-						<p className="fontFamilyMdPrime text-gray-400 text-center">
+						<p className="fontFamilyMdPrime text-gray-400 text-center text-[0.9em]">
 							Available to all of your employees regardless of credit.
 							<sup className="fontFamilyMdPrime">1</sup>
 						</p>
@@ -148,6 +149,7 @@ export default function Home() {
 							initial={{ y: 100 }}
 							whileInView={{ y: 0 }}
 							transition={{ duration: 0.75 }}
+							viewport={{ once: true }}
 						>
 							<div className="flex gap-4 justify-center flex-wrap md:flex-nowrap">
 								{RuleThemAll.map((rules, index) => (
@@ -165,6 +167,7 @@ export default function Home() {
 							initial={{ y: 100 }}
 							whileInView={{ y: 0 }}
 							transition={{ duration: 0.75 }}
+							viewport={{ once: true }}
 						>
 							<div className="flex gap-4 justify-center mt-[2rem] flex-wrap md:flex-nowrap">
 								{MoreRuleThemAll.map((rules, index) => (
@@ -187,31 +190,46 @@ export default function Home() {
 							<h2 className="text-[1.5rem] md:text-[3.5rem] mt-[20px] leading-none">The personal card advantage</h2>
 						</div>
 					</div>
-					<div className="flex md:justify-between flex-wrap-reverse justify-center md:px-[30px]">
-						<div className="md:basis-[35%]">
-							<div className="flex gap-8 border-b-[1px] justify-center p-[20px]">
-								<h4 className="text-[1rem] md:text-[2rem]">Employee</h4>
-								<h4 className="text-[1rem] md:text-[2rem]">CFO</h4>
-								<h4 className="text-[1rem] md:text-[2rem]">HR</h4>
+					<div className="flex md:justify-between md:flex-nowrap flex-wrap-reverse justify-center md:px-[30px]">
+						<motion.div
+							className="md:basis-[50%]"
+							initial={{ x: -100 }}
+							whileInView={{ x: 0 }}
+							transition={{ duration: 0.75 }}
+							viewport={{ once: true }}
+						>
+							<div>
+								<div className="flex gap-8 border-b-[1px] justify-start p-[20px] md:w-[70%]">
+									<h4 className="text-[1rem] md:text-[2rem] cursor-pointer">Employee</h4>
+									<h4 className="text-[1rem] md:text-[2rem] cursor-pointer">CFO</h4>
+									<h4 className="text-[1rem] md:text-[2rem] cursor-pointer">HR</h4>
+								</div>
+								<div className="pt-[2rem]">
+									<div className="mb-[3rem]">
+										<h3 className="text-[1.5rem] mb-[0.5rem]">No annual fee</h3>
+										<p className="text-[1rem] text-gray-400">Cosmoscard puts the liability of business expenses on a personal card product, creating personal liability and accountability thus curbing excessive spending.</p>
+									</div>
+									<div className="mb-[3rem]">
+										<h3 className="text-[1.5rem] mb-[0.5rem]">Instant reports</h3>
+										<p className="text-[1rem] text-gray-400">Cosmoscard enables one-click stipend and expense report submissions, saving up to 40 minutes per report.</p>
+									</div>
+									<div>
+										<h3 className="text-[1.5rem] mb-[0.5rem]">Instant reimbursements</h3>
+										<p className="text-[1rem] text-gray-400">Cosmoscard offers instant reimbursements when employees submit expense reports, eliminating the need to front costs for the employer while allowing employees to keep the points from those transactions.</p>
+									</div>
+								</div>
 							</div>
-							<div className="pt-[2rem]">
-								<div className="mb-[3rem]">
-									<h3 className="text-[1.5rem] mb-[0.5rem]">No annual fee</h3>
-									<p className="text-[1rem] text-gray-400">Cosmoscard puts the liability of business expenses on a personal card product, creating personal liability and accountability thus curbing excessive spending.</p>
-								</div>
-								<div className="mb-[3rem]">
-									<h3 className="text-[1.5rem] mb-[0.5rem]">Instant reports</h3>
-									<p className="text-[1rem] text-gray-400">Cosmoscard enables one-click stipend and expense report submissions, saving up to 40 minutes per report.</p>
-								</div>
-								<div>
-									<h3 className="text-[1.5rem] mb-[0.5rem]">Instant reimbursements</h3>
-									<p className="text-[1rem] text-gray-400">Cosmoscard offers instant reimbursements when employees submit expense reports, eliminating the need to front costs for the employer while allowing employees to keep the points from those transactions.</p>
-								</div>
+						</motion.div>
+						<motion.div
+							initial={{ x: 100 }}
+							whileInView={{ x: 0 }}
+							transition={{ duration: 0.75 }}
+							viewport={{ once: true }}
+						>
+							<div>
+								<img src="https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname.png" loading="lazy" width="800" sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 89vw, 800px" alt="" srcset="https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-500.png 500w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-800.png 800w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-1080.png 1080w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname.png 1600w" class="personal_image" />
 							</div>
-						</div>
-						<div>
-							<img src="https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname.png" loading="lazy" width="800" sizes="(max-width: 479px) 90vw, (max-width: 767px) 94vw, (max-width: 991px) 89vw, 800px" alt="" srcset="https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-500.png 500w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-800.png 800w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname-p-1080.png 1080w, https://assets-global.website-files.com/64459fc8eb1482845c5a8b24/66269297545f4253bf0a11da_hypercard-noname.png 1600w" class="personal_image" />
-						</div>
+						</motion.div>
 					</div>
 				</div>
 
@@ -223,19 +241,26 @@ export default function Home() {
 						</div>
 					</div>
 					<div className="pt-[2rem] md:pt-[5rem] md:px-[3rem]">
-						<div className="flex gap-4 justify-center flex-wrap md:flex-nowrap">
-							{BuiltForScale.map((rules, index) => (
-								<div key={index} className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
-									<div className="bg-black p-[1.6rem] rounded-[2rem]">
-										<div className="scale_card-image justify-center flex md:!flex-none md:justify-start">
-											{rules.img}
+						<motion.div
+							initial={{ y: 100 }}
+							whileInView={{ y: 0 }}
+							transition={{ duration: 0.75 }}
+							viewport={{ once: true }}
+						>
+							<div className="flex gap-4 justify-center flex-wrap md:flex-nowrap">
+								{BuiltForScale.map((rules, index) => (
+									<div key={index} className="w-full rounded-[2rem] p-[1px] rounded-[2rem]" style={{ backgroundImage: "linear-gradient(315deg, rgba(255, 255, 255, .64), rgba(0, 0, 0, .3) 23%, rgba(255, 255, 255, .22) 78%, rgba(255, 255, 255, 0)), linear-gradient(135deg, rgba(255, 255, 255, .66), #fff 0%, rgba(0, 0, 0, .3) 18%, rgba(255, 255, 255, .25) 74%, rgba(255, 255, 255, 0))" }}>
+										<div className="bg-black p-[1.6rem] rounded-[2rem]">
+											<div className="scale_card-image justify-center flex md:!flex-none md:justify-start">
+												{rules.img}
+											</div>
+											<h3 className="text-[1.5rem] mb-[0.8rem] text-center">{rules.header}</h3>
+											<p className="text-[0.9rem] leading-[1.3] text-gray-400 text-center">{rules.para}</p>
 										</div>
-										<h3 className="text-[1.5rem] mb-[0.8rem] text-center">{rules.header}</h3>
-										<p className="text-[0.9rem] leading-[1.3] text-gray-400 text-center">{rules.para}</p>
 									</div>
-								</div>
-							))}
-						</div>
+								))}
+							</div>
+						</motion.div>
 					</div>
 				</div>
 
@@ -246,8 +271,8 @@ export default function Home() {
 							<h2 className="text-[1.5rem] md:text-[3.5rem] mt-[20px]">When your employees move on, we move with them</h2>
 						</div>
 					</div>
-					<div className="pt-[3rem] mx-[-50px] flex justify-center">
-						<iframe className="w-[96vw] h-[50vw]" src="https://player.vimeo.com/video/938746509?background=1&amp;autoplay=1&amp;loop=1&amp;byline=0&amp;title=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-ready="true"></iframe>
+					<div className="pt-[3rem] flex justify-center">
+						<iframe className="w-[100vw] h-[50vw]" src="https://player.vimeo.com/video/938746509?background=1&amp;autoplay=1&amp;loop=1&amp;byline=0&amp;title=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" data-ready="true"></iframe>
 					</div>
 				</div>
 
@@ -266,32 +291,53 @@ export default function Home() {
 						</div>
 						<div className="md:basis-[50%]">
 							<div className="pt-[2rem]">
-								<div className="mb-[3rem]">
-									<h3 className="text-[1.5rem] mb-[0.5rem]">What happens when an employee leaves the company?</h3>
-									<p className="text-[1rem] text-gray-400">Cosmoscard Rewards Card offers worry-free, hands-on off-boarding. When an employee leaves the company, their card will be seamlessly transitioned to our white CosmosOne Rewards card, which will house only the native perks offered by CosmosOne. All financial obligations will continue to smoothly be transferred to the employee's personal card without any disruption at no additional cost to the company.</p>
-								</div>
-								<div className="mb-[3rem]">
-									<h3 className="text-[1.5rem] mb-[0.5rem]">Why should our company partner with Cosmoscard?</h3>
-									<p className="text-[1rem] text-gray-400">The Cosmoscard Rewards Card offers 2X points on all transactions and 3X points on transactions flagged for reimbursement. The points can be redeemed towards cash-back, standard merchant rewards, gift cards, and more.</p>
-								</div>
-								<div>
-									<h3 className="text-[1.5rem] mb-[0.5rem]">What kind of support should I expect from Cosmoscard?</h3>
-									<p className="text-[1rem] text-gray-400">Our 24/7 support team comprises highly experienced professionals with a decades-long proven track record of delivering superior customer service. Our support channels include phone and email, where all concerns are addressed urgently to complete satisfaction. Our technical support engineers are some of the foremost experts in their field, ensuring our card's seamless and secure operation.</p>
-								</div>
+								<motion.div
+									initial={{ x: 100 }}
+									whileInView={{ x: 0 }}
+									transition={{ duration: 0.75 }}
+									viewport={{ once: true }}
+								>
+									<div className="mb-[3rem]">
+										<h3 className="text-[1.5rem] mb-[0.5rem]">What happens when an employee leaves the company?</h3>
+										<p className="text-[1rem] text-gray-400">Cosmoscard Rewards Card offers worry-free, hands-on off-boarding. When an employee leaves the company, their card will be seamlessly transitioned to our white CosmosOne Rewards card, which will house only the native perks offered by CosmosOne. All financial obligations will continue to smoothly be transferred to the employee's personal card without any disruption at no additional cost to the company.</p>
+									</div>
+								</motion.div>
+								<motion.div
+									initial={{ x: 100 }}
+									whileInView={{ x: 0 }}
+									transition={{ duration: 0.75 }}
+									viewport={{ once: true }}
+								>
+									<div className="mb-[3rem]">
+										<h3 className="text-[1.5rem] mb-[0.5rem]">Why should our company partner with Cosmoscard?</h3>
+										<p className="text-[1rem] text-gray-400">The Cosmoscard Rewards Card offers 2X points on all transactions and 3X points on transactions flagged for reimbursement. The points can be redeemed towards cash-back, standard merchant rewards, gift cards, and more.</p>
+									</div>
+								</motion.div>
+								<motion.div
+									initial={{ x: 100 }}
+									whileInView={{ x: 0 }}
+									transition={{ duration: 0.75 }}
+									viewport={{ once: true }}
+								>
+									<div>
+										<h3 className="text-[1.5rem] mb-[0.5rem]">What kind of support should I expect from Cosmoscard?</h3>
+										<p className="text-[1rem] text-gray-400">Our 24/7 support team comprises highly experienced professionals with a decades-long proven track record of delivering superior customer service. Our support channels include phone and email, where all concerns are addressed urgently to complete satisfaction. Our technical support engineers are some of the foremost experts in their field, ensuring our card's seamless and secure operation.</p>
+									</div>
+								</motion.div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div className="mt-[10em] bg-gray-100 mx-[-30px] p-[40px] pt-[30px]">
+				<div className="mt-[10em] bg-gray-100 mx-[-20px] md:mx-[-30px] p-[40px] pt-[30px]">
 					<div className="flex md:justify-between md:gap-5 justify-center">
 						<div className="md:basis-[50%]">
 							<div className="flex flex-col text-left">
-								<div className="md:w-[500px]">
-									<h2 className="text-[1.5rem] md:text-[3.5rem] mt-[20px] text-black">A few minutes in return for a revolution</h2>
+								<div className="md:w-[600px]">
+									<h2 className="text-[1.5rem] md:text-[3.5rem] mt-[20px] text-black leading-[1.2]">A few minutes in return for a revolution</h2>
 								</div>
 								<p className="text-gray-400 text-[.875rem] font-normal text-black">Sign up now and start taking advantage of our incredible benefits.</p>
-								<div className="py-[15px] bg-black text-white w-[20rem] rounded mt-[1rem] text-center font-medium fontFamilyMdPrime">
+								<div className="py-[15px] bg-black text-white md:w-[20rem] rounded mt-[1rem] text-center font-medium fontFamilyMdPrime">
 									Get Started
 								</div>
 							</div>
